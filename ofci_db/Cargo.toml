@@ -1,0 +1,27 @@
+[package]
+name = "ofci_db"
+version = "0.1.0"
+authors = ["anon"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+dotenv = "0.15.0"
+tokenizers = { git = "https://github.com/huggingface/tokenizers.git", rev = "d83772d62c" }
+serde = "1.0.126"
+serde_json = "1.0.66"
+rayon = "1.5.1"
+rand = "0.7.3"
+hdf5 = "0.7.1" # Needs a C compiler..
+
+[dependencies.indicatif]
+version = "0.15.0"
+features = ["rayon"]
+
+[dependencies.diesel]
+version = "1.4"
+features = ["postgres", "r2d2"]
+
+[dependencies.ndarray]
+version = "0.14" # this version is required for hdf5.. 

@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - '../../../../db/postgres-data:/var/lib/postgresql/data:rw'
+    env_file:
+      - .env
+    ports:
+      - '0.0.0.0:5432:5432'
+    networks:
+      - extraction
+
+networks:
+  extraction:
+    name: dataset_extraction
+
